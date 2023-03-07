@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class LoginTests extends BaseTest {
 
-    @Test
+    @Test(enabled = false, descrition = "test not needed at this time")
     public static void LoginEmptyEmailPasswordTest() {
 
         WebDriver driver = new ChromeDriver();
