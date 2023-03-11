@@ -16,14 +16,14 @@ import java.time.Duration;
 
 
 public class BaseTest {
+    public static WebDriver driver = null;
 
     @BeforeSuite
     static void setupClass() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
 
     @BeforeMethod
-        public  void launchBrowser; ChromeDriver driver;
-        {
+        public static void launchBrowser() {
             driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
@@ -32,23 +32,24 @@ public class BaseTest {
             driver.quit();
         }
 
-        protected static void navigateToPage() {
+        public static void navigateToPage() {
 
             String url = "https://apps.testpro.io/";
             driver.get(url);
 
         }
-        public static void provideEmail(String email){
+        public static void provideEmail(String provideEmail){
             WebElement emailField = driver.findElement(By.cssSelector("[type='email']"));
             emailField.clear();
             emailField.sendKeys("damascus.dotson@testpro.io");
         }
-        public static void providePassword(String password){
+        public static void providePassword(String providePassword){
                 WebElement passwordField = driver.findElement(By.cssSelector("[type='passowrd']"));
                 passwordField.clear();
                 passwordField.sendKeys("Destro808");
         }
         public static void clickSubmit() {
+                String button;
                 WebElement submitButton = driver.findElement(By.cssSelector(button"[type='submit']"));
                 submitButton.click();
                 Thread.sleep(2000);
